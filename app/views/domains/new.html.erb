@@ -1,0 +1,14 @@
+<h1>Добавление нового домена</h1>
+
+<%= form_for(@domain) do |f| %>
+
+<%= render 'layouts/error_domain_messages', :object => f.object %>
+
+  <div class="div-field">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </div>
+  <div class="div-actions">
+    <%= f.submit "Создать!" %>
+  </div>
+<% end %>
