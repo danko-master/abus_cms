@@ -5,30 +5,48 @@ describe UsersController do
  
   render_views
   
+ describe "for non-signed-in users" do
+     
+      it "should deny access for index" do
+        get :index
+        response.should redirect_to(signin_path)
+      end
+      
+      it "should deny access for new" do
+        get 'new'
+        response.should redirect_to(signin_path)
+      end
+      
+  end
   
-  describe "GET 'show'" do
-
+  
+  describe "for signed-in users" do
+  
     before(:each) do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
+      test_sign_in(@user)
     end
 
-    it "should be successful" do
-      get :show, :id => @user
+      it "GET 'show' should be successful" do
+        get :show, :id => @user
+        response.should be_success
+      end
+
+      it "GET 'new' returns http success" do
+        get 'new'
+        response.should be_success
+      end
+      
+    it "GET 'edit' should be successful" do
+      get :edit, :id => @user
       response.should be_success
     end
-
-    it "should find the right user" do
-      get :show, :id => @user
-      assigns(:user).should == @user
-    end
-  end  
+    
+    it "GET 'index' should be successful" do
+        get :index
+        response.should be_success
+      end
   
-
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
-    end
   end
   
   
@@ -40,6 +58,9 @@ describe UsersController do
       before(:each) do
         @attr = { :name => "", :email => "", :password => "",
                   :password_confirmation => "" }
+                  
+       @user_admin = FactoryGirl.create(:user)
+      test_sign_in(@user_admin)
       end
 
       it "should not create a user" do
@@ -56,29 +77,13 @@ describe UsersController do
     end
   end
   
-  
-  
-  describe "GET 'edit'" do
-
-    before(:each) do
-      @user = Factory(:user)
-      test_sign_in(@user)
-    end
-
-    it "should be successful" do
-      get :edit, :id => @user
-      response.should be_success
-    end
-
-
-  end
-  
+ 
   
   
   describe "PUT 'update'" do
 
     before(:each) do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
       test_sign_in(@user)
     end
 
@@ -123,7 +128,7 @@ describe UsersController do
   describe "authentication of edit/update pages" do
 
     before(:each) do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
     end
 
     describe "for non-signed-in users" do
@@ -142,7 +147,7 @@ describe UsersController do
     describe "for signed-in users" do
 
       before(:each) do
-        wrong_user = Factory(:user, :email => "user@example.net")
+        wrong_user = FactoryGirl.create(:user, :email => "user@example.net")
         test_sign_in(wrong_user)
       end
 
@@ -160,39 +165,12 @@ describe UsersController do
   end
   
   
-  
-  describe "GET 'index'" do
-      
-   describe "for non-signed-in users" do
-      it "should deny access" do
-        get :index
-        response.should redirect_to(signin_path)
-      end
-    end
     
-  describe "for signed-in users" do
-    
-    before(:each) do
-        @user = test_sign_in(Factory(:user))
-        second = Factory(:user, :name => "Bob", :email => "another@example.com")
-        third  = Factory(:user, :name => "Ben", :email => "another@example.net")
-
-        @users = [@user, second, third]
-      end
-    
-     it "should be successful" do
-        get :index
-        response.should be_success
-      end
-    end
-      
-  end
-  
     
   describe "DELETE 'destroy'" do
 
     before(:each) do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
     end
 
     describe "as a non-signed-in user" do
@@ -221,7 +199,7 @@ describe UsersController do
     describe "as an admin user" do
 
       before(:each) do
-        admin = Factory(:user, :email => "admin@example.com", :admin => true)
+        admin = FactoryGirl.create(:user, :email => "admin@example.com", :admin => true)
         test_sign_in(admin)
       end
 

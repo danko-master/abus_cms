@@ -1,0 +1,12 @@
+<h1><%= t('views.page.page_edit_welcome') %></h1>
+
+<%= render 'layouts/domain_menu' %>
+
+<%= form_for(@page) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="div-actions">
+    <%= f.submit t('views.buttons.save') %>
+  </div>
+<% end %>
+
+

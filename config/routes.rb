@@ -1,19 +1,19 @@
 CmsAbus2::Application.routes.draw do
-  
-  get "sessions/new"
-  get "domains/new"
-  get "users/new"
+
+
+  mount Ckeditor::Engine => '/ckeditor'
 
     #путь к главной странице
     root :to => 'sessions#new'
     
     #роутинг меню для страницы приветствия
-    get "domains/show"
+   # get "domains/show"
     get "main/show"
-    get "index/show"
+   # get "index/show"
 
     #пути к ресурсам контроллеров      
     resources :main
+    resources :pages
     resources :domains
       match '/newdomain',  :to => 'domains#new'
     
@@ -25,5 +25,11 @@ CmsAbus2::Application.routes.draw do
       match '/signup',  :to => 'users#new'
       match '/signin',  :to => 'sessions#new'
       match '/signout', :to => 'sessions#destroy'
+      
+   namespace :ckeditor do
+      resources :pictures, :only => [:index, :create, :destroy]
+      resources :attachment_files, :only => [:index, :create, :destroy]
+      resources :attachments, :only => [:index, :create, :destroy]
+    end
     
 end

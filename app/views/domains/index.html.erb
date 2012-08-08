@@ -1,0 +1,12 @@
+<h1><%= t('views.domains.welcome') %></h1>
+<p><%= t('views.domains.notice') %></p>
+
+Domain is: <%= session[:current_domain_id] %>
+
+<% @domains.each do |domain| %>
+	<%= content_tag_for :li, domain, :class => 'li-domain' do %>
+		(<%= t('views.domains.theme') %>:<%= domain.id%>) <%= link_to domain.name, domain %> 
+		(<%= link_to image_tag("buttons/edit.png", :alt => "#{t('views.buttons.edit')} #{domain.name}", :title => "#{t('buttons.edit')} #{domain.name}", :class => 'img-buttons'), domain %>) 
+    		<%= link_to image_tag("buttons/delete.png", :alt => "#{t('views.buttons.delete')} #{domain.name}", :title => "#{t('buttons.delete')} #{domain.name}", :class => 'img-buttons'), domain, :method => :delete, :confirm => t('views.forms.confirm') %>
+	<% end %>
+<% end %>

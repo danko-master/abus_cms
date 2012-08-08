@@ -17,5 +17,7 @@ class Domain < ActiveRecord::Base
                 :presence => true,
                 :format => {:with => domain_regex},
                 :uniqueness => { :case_sensitive => false }
+                
+
   
 end

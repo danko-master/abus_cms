@@ -1,4 +1,56 @@
 ru:
+  views:
+    menu:
+      mains: "Редактировать главную"
+      pages: "Страницы"
+      domains: "Домены"
+      users: "Пользователи"
+      exit: "Выход"      
+      add: "Добавить"
+      catalog: "Каталог"
+    forms:
+      save: "Сохранить"
+      update: "Обновить"
+      confirm: "Вы уверены?"
+    buttons:
+      delete: "Удалить"
+      edit: "Редактировать"
+      save: "Сохранить"
+      create: "Создать"
+    domains:
+      welcome: "Редактор привязанных доменов"
+      notice: "Пожалуйста, добавьте домен или просмотрите список существующих доменов"
+      new: "Добавление нового домена"
+      domain_address: "Адрес домена без http:"
+      edit: "Редактирование домена"
+      theme: "Номер темы"
+    main:
+      welcome: "Редактирование главной страницы"
+      notice: "Пожалуйста, выберите главную страницу интересующего домена"
+    page:
+      page_edit_welcome: "Редактирование страницы"
+      page_create_welcome: "Создание страницы"
+  field:
+    name: "Имя"
+    password: "Пароль"
+    new_password: "Новый пароль"
+    password_confirm: "Подтверждение пароля"
+    article_date: "Дата"
+    article_name: "Название"
+    article_description: "Краткий текст"
+    article_fulltext: "Полный текст"
+    page_name: "Название страницы"
+    page_title: "Title страницы"
+    page_meta_keywords: "Meta Keywords"
+    page_meta_description: "Meta Description"
+    page_head: "Поле для вставки в заголовок страницы (head)"
+    page_content: "Контент страницы"
+    page_is_menu: "Отображать в меню?"
+    page_order_id: "Сортировка"
+    page_parent_id: "ID родителя"
+    main_contact: "Контакты"
+    main_footer: "Подвал сайта"
+    main_counter: "Место для счетчика статистики (низ страницы перед body)"
   date:
     abbr_day_names:
     - Вс
@@ -271,5 +323,14 @@ ru:
               user_update_success: "Пользователь успешно обновлен!"
               user_destroy_success: "Пользователь успешно удалён!"
             domain:
+             domain_create_success: "Домен успешно создан!"
+             domain_update_success: "Домен успешно обновлен!"
              domain_error: "Введены неверные данные!"
              domain_update_error: "Ошибка обновления домена!"
+             domain_destroy_success: "Домен успешно удалён!"
+            page:
+              page_create_success: "Страница успешно создана!"
+              page_create_error: "Ошибка создания страницы!"
+              page_update_error: "Ошибка обновления страницы!"
+              page_update_success: "Страница успешно обновлена!"
+              page_destroy_success: "Страница успешно удалёна!"

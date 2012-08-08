@@ -14,7 +14,7 @@ describe Domain do
     before(:each) do
     @attr = {:name => "mydomainexample.com"}
       
-    @attr2 = {:name => "mydomainexample2.com"}
+    @attr2 = {:name => "mydomainexample.com"}
   end
   
   it "Create a new instance given valid attributes" do
@@ -26,6 +26,11 @@ describe Domain do
     no_name_domain.should_not be_valid
   end
   
+  it "Require Domain not nil name" do
+    no_name_domain = Domain.new(@attr.merge(:name => nil))
+    no_name_domain.should_not be_valid
+  end
+  
   it "Accept valid domain name" do
     
     domains = %w[foo.com USER.org abC.ru]
@@ -33,6 +38,11 @@ describe Domain do
       valid_domain = Domain.new(@attr.merge(:name => domain))
       valid_domain.should be_valid
     end
+  end
+  
+  it "Accept valid domain name with regex" do
+    @domain = FactoryGirl.create(:domain)
+    @domain[:name].should =~ /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z0-9\-]{2,8}$/i
   end
   
   

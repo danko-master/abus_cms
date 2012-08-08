@@ -23,5 +23,7 @@ class Page < ActiveRecord::Base
   
   validates :name, :presence => true
   
+    validates :domain,
+                :presence => true
 
 end

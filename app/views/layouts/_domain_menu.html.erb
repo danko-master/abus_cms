@@ -1,0 +1,7 @@
+<div class="header-domain-menu">
+   	 <ul>   	 	
+   	 	<li><%= link_to session[:current_domain_name], "http://"+session[:current_domain_name], :target => "_blank" %></li>
+   	 	<li><%= link_to t('views.menu.mains'), :controller => 'main', :action=>'show' %></li>
+   	 	<li><%= link_to t('views.menu.pages'), :controller => 'pages', :action=>'index' %> (<%= link_to t('views.menu.add'), new_page_path %>)</li>
+   	 </ul>  
+</div>

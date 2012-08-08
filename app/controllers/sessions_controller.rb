@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   
+  skip_before_filter :require_login
+    
   def new
   end
   
@@ -19,6 +21,8 @@ class SessionsController < ApplicationController
   
   def destroy
     sign_out
+    session[:current_domain_id] = nil
+    session[:current_domain_name] = nil
     redirect_to root_path
   end
   

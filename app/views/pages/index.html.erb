@@ -1,0 +1,11 @@
+<h1><%= t('views.menu.pages') %></h1>
+
+<%= render 'layouts/domain_menu' %>
+
+<% @pages.each do |page| %>
+	<%= content_tag_for :li, page, :class => 'li-domain' do %>
+		<%= link_to page.name, page %> 
+		(<%= link_to image_tag("buttons/edit.png", :alt => "#{t('views.buttons.edit')} #{page.name}", :title => "#{t('buttons.edit')} #{page.name}", :class => 'img-buttons'), page %>) 
+    		<%= link_to image_tag("buttons/delete.png", :alt => "#{t('views.buttons.delete')} #{page.name}", :title => "#{t('buttons.delete')} #{page.name}", :class => 'img-buttons'), page, :method => :delete, :confirm => t('views.forms.confirm') %>
+	<% end %>
+<% end %>

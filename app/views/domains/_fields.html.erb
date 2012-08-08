@@ -1,0 +1,11 @@
+<%= form_for(@domain) do |f| %>
+  <%= render 'layouts/error_domain_messages', :object => f.object %>
+  
+  <div class="div-field">
+    <%= f.label :name, t('views.domains.domain_address') %><br />
+    <%= f.text_field :name, :class => 'domain_name' %>
+  </div>
+  <div class="div-actions">
+    <%= f.submit t('views.forms.save'),:confirm => t('views.forms.confirm') %>
+  </div>
+<% end %>

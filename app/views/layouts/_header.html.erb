@@ -2,13 +2,9 @@
 	<nav>
    	 <ul>
     	<% if signed_in? %>
-    	   	 	<li><%= link_to "Редактировать главную", :controller => 'main', :action=>'show' %></li>
-   	 			<li><%= link_to "Домены", :controller => 'domains', :action=>'show' %></li>
-    			<li>Страницы</li>
-    			<li>Каталог</li>
-    			<li>Лента новостей</li>
-    			<li><%= link_to "Пользователи", users_path %> (<%= link_to "Добавить", signup_path %>)</li>
-    			<li><%= link_to current_user.name, edit_user_path(current_user) %> (<%= link_to "Выход", signout_path, :method => :delete %>)</li>
+   	 			<li><%= link_to t('views.menu.domains'), :controller => 'domains', :action=>'index' %> (<%= link_to t('views.menu.add'), new_domain_path %>)</li>
+    			<li><%= link_to t('views.menu.users'), users_path %> (<%= link_to t('views.menu.add'), signup_path %>)</li>
+    			<li><%= link_to current_user.name, edit_user_path(current_user) %> (<%= link_to t('views.menu.exit'), signout_path, :method => :delete %>)</li>
 		<% end %>
    	 </ul>   
  	</nav>

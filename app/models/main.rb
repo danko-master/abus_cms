@@ -17,6 +17,8 @@
 
 class Main < ActiveRecord::Base
   
-    attr_accessible :title, :metadescription, :metakeywords, :head, :content
+    attr_accessible :title, :content, :metadescription, :metakeywords, :head, :contact, :footer, :counter, :domain
     
+      validates :domain,
+                :presence => true
 end
