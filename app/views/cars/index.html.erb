@@ -1,0 +1,10 @@
+<h1><%= t('views.car.welcome') %></h1>
+
+
+<% @cars.each do |car| %>
+	<%= content_tag_for :li, car, :class => 'li-car' do %>
+		<%= link_to car.name, vehicle_path(:alias => car.alias) %> 
+		(<%= link_to image_tag("buttons/edit.png", :alt => "#{t('views.buttons.edit')} #{car.name}", :title => "#{t('views.buttons.edit')} #{car.name}", :class => 'img-buttons'), car %>) 
+    		<%= link_to image_tag("buttons/delete.png", :alt => "#{t('views.buttons.delete')} #{car.name}", :title => "#{t('views.buttons.delete')} #{car.name}", :class => 'img-buttons'), car, :method => :delete, :confirm => t('views.forms.confirm') %>
+	<% end %>
+<% end %>

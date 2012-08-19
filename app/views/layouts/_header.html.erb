@@ -3,6 +3,7 @@
    	 <ul>
     	<% if signed_in? %>
    	 			<li><%= link_to t('views.menu.domains'), :controller => 'domains', :action=>'index' %> (<%= link_to t('views.menu.add'), new_domain_path %>)</li>
+   	 			<li><%= link_to t('views.menu.cars'), :controller => 'cars', :action=>'index' %> (<%= link_to t('views.menu.add'), new_car_path %>)</li>
     			<li><%= link_to t('views.menu.users'), users_path %> (<%= link_to t('views.menu.add'), signup_path %>)</li>
     			<li><%= link_to current_user.name, edit_user_path(current_user) %> (<%= link_to t('views.menu.exit'), signout_path, :method => :delete %>)</li>
 		<% end %>

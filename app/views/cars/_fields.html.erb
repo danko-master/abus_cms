@@ -1,0 +1,158 @@
+  <%= render 'layouts/error_page_messages', :object => f.object %>
+
+  <div class="div-field">
+    <%= f.label :name, t('field.car_name') %><br />
+    <%= f.text_field :name, :class => "text-field" %>
+  </div>
+  
+  <div class="div-field">
+    <%= f.label :alias, t('field.car_alias') %><br />
+    <%= f.text_field :alias, :class => "text-field" %>
+  </div>
+
+  <div class="div-field">
+    <%= f.label :title, t('field.page_title') %><br />
+    <%= f.text_field :title, :class => "text-field" %>
+  </div>
+  
+  <div class="div-field">
+    <%= f.label :metakeywords, t('field.page_meta_keywords') %><br />
+    <%= f.text_field :metakeywords, :class => "text-field" %>
+  </div>
+  
+  <div class="div-field">
+    <%= f.label :metadescription, t('field.page_meta_description') %><br />
+    <%= f.text_field :metadescription, :class => "text-field" %>
+  </div>
+  
+  <div class="div-field">
+    <%= f.label :short, t('field.car_short') %><br />
+    <%= f.cktext_area :short, :class => "textarea-head" %>
+  </div>  
+
+  <div class="div-field">
+    <%= f.label :long, t('field.car_long') %><br />
+    <%= f.cktext_area :long, :class => "textarea-head" %>
+  </div> 
+  
+  
+<table cellpadding="0" cellspacing="0" width="100%">
+ <tr><td class="td-field-price">
+  
+  <div class="div-field">
+    <%= f.label :price_hour, t('field.car_price_hour') %><br />
+    <%= f.text_field :price_hour, :class => "text-field" %>
+  </div>  
+  
+  <div class="div-field">
+    <%= f.label :price_MKAD, t('field.car_price_MKAD') %><br />
+    <%= f.text_field :price_MKAD, :class => "text-field" %>
+  </div>
+
+  <div class="div-field">
+    <%= f.label :min_zakaz, t('field.car_min_zakaz') %><br />
+    <%= f.text_field :min_zakaz, :class => "text-field" %>
+  </div>  
+    
+ </td><td class="td-field-price">   	
+  
+  <div class="div-field">
+    <%= f.label :transfer_sheremetevo, t('field.car_transfer_sheremetevo') %><br />
+    <%= f.text_field :transfer_sheremetevo, :class => "text-field" %>
+  </div>
+  
+  <div class="div-field">
+    <%= f.label :transfer_vnukovo, t('field.car_transfer_vnukovo') %><br />
+    <%= f.text_field :transfer_vnukovo, :class => "text-field" %>
+  </div>  
+  
+  <div class="div-field">
+    <%= f.label :transfer_domodedovo, t('field.car_transfer_domodedovo') %><br />
+    <%= f.text_field :transfer_domodedovo, :class => "text-field" %>
+  </div>
+
+  <div class="div-field">
+    <%= f.label :transfer_ostafevo, t('field.car_transfer_ostafevo') %><br />
+    <%= f.text_field :transfer_ostafevo, :class => "text-field" %>
+  </div>  
+  
+  <div class="div-field">
+    <%= f.label :transfer_bikovo, t('field.car_transfer_bikovo') %><br />
+    <%= f.text_field :transfer_bikovo, :class => "text-field" %>
+  </div>
+  
+  <div class="div-field">
+    <%= f.label :transfer_airport_airport, t('field.car_transfer_airport_airport') %><br />
+    <%= f.text_field :transfer_airport_airport, :class => "text-field" %>
+  </div>  
+  
+  <div class="div-field">
+    <%= f.label :transfer_airport_station, t('field.car_transfer_airport_station') %><br />
+    <%= f.text_field :transfer_airport_station, :class => "text-field" %>
+  </div>
+
+  <div class="div-field">
+    <%= f.label :transfer_station_airport, t('field.car_transfer_station_airport') %><br />
+    <%= f.text_field :transfer_station_airport, :class => "text-field" %>
+  </div>  
+  
+ </td><td class="td-field-price">  
+  
+  
+  <div class="div-field">
+    <%= f.label :weeding_price_hour, t('field.car_weeding_price_hour') %><br />
+    <%= f.text_field :weeding_price_hour, :class => "text-field" %>
+  </div>
+  
+  <div class="div-field">
+    <%= f.label :weeding_price_MKAD, t('field.car_weeding_price_MKAD') %><br />
+    <%= f.text_field :weeding_price_MKAD, :class => "text-field" %>
+  </div>  
+  
+  <div class="div-field">
+    <%= f.label :weeding_min_zakaz, t('field.car_weeding_min_zakaz') %><br />
+    <%= f.text_field :weeding_min_zakaz, :class => "text-field" %>
+  </div>
+
+  <div class="div-field">
+    <%= f.label :weeding_friday, t('field.car_weeding_friday') %><br />
+    <%= f.text_field :weeding_friday, :class => "text-field" %>
+  </div>  
+  
+  <div class="div-field">
+    <%= f.label :weeding_saturday, t('field.car_weeding_saturday') %><br />
+    <%= f.text_field :weeding_saturday, :class => "text-field" %>
+  </div>
+  
+  <div class="div-field">
+    <%= f.label :weeding_decor, t('field.car_weeding_decor') %><br />
+    <%= f.text_field :weeding_decor, :class => "text-field" %>
+  </div>
+
+
+ </td><td class="td-field-price">
+ 	
+
+  <div class="div-field">
+    <%= f.label :holiday, t('field.car_holiday') %><br />
+    <%= f.text_field :holiday, :class => "text-field" %>
+  </div>  
+  
+  <div class="div-field">
+    <%= f.label :holiday_min_zakaz, t('field.car_holiday_min_zakaz') %><br />
+    <%= f.text_field :holiday_min_zakaz, :class => "text-field" %>
+  </div>
+  
+  <div class="div-field">
+    <%= f.label :holiday_weeding_min_zakaz, t('field.car_holiday_weeding_min_zakaz') %><br />
+    <%= f.text_field :holiday_weeding_min_zakaz, :class => "text-field" %>
+  </div>
+  
+  </td>
+ </tr>
+</table>
+
+  
+  <div class="div-field">
+    <%= f.check_box :is_show, :class => "checkbox-field", :checked => true %> <%= f.label :is_show, t('field.car_is_show') %>    
+  </div>

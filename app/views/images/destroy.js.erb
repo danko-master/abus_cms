@@ -1,0 +1,2 @@
+$('#image_list').html("<%= escape_javascript(render('list')) %>")
+$('#div_flash_box').html("<%= escape_javascript(render :partial => 'layouts/flash', :locals => { :flash => flash }).html_safe %>")

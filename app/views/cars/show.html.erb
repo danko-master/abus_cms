@@ -1,0 +1,10 @@
+<h1><%= t('views.car.car_update_welcome') %></h1>
+
+<%= link_to 'Редактирование изображений', :controller => 'images', :action => 'index', :car_id => @car.id %>
+
+<%= form_for(@car) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="div-actions">
+    <%= f.submit t('views.buttons.save') %>
+  </div>
+<% end %>

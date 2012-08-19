@@ -5,6 +5,8 @@ gem 'pg', '0.12.2' # БД
 gem 'therubyracer', '0.9.9' # для вызова javascript
 gem 'jquery-rails', '1.0.19'
 
+
+
 # Для upload и ckeditor
 gem 'paperclip', '3.1.2'
 gem 'ckeditor', '3.6.3'
@@ -19,6 +21,7 @@ group :assets do
   gem 'sass-rails',   '3.1.5' # создает css.scss файл
   gem 'coffee-rails', '3.1.1' # создает js.coffee файл
   gem 'uglifier', '>= 1.0.3' # оболочка для UglifyJS JavaScript
+  gem 'jquery-ui-rails', '1.1.0'
 end
 
 

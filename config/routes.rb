@@ -1,18 +1,19 @@
 CmsAbus2::Application.routes.draw do
 
-
   mount Ckeditor::Engine => '/ckeditor'
+
 
     #путь к главной странице
     root :to => 'sessions#new'
     
-    #роутинг меню для страницы приветствия
-   # get "domains/show"
-    get "main/show"
-   # get "index/show"
-
+    get "main/show" # Для второго меню
+    
     #пути к ресурсам контроллеров      
     resources :main
+    resources :cars
+    resources :images do
+      collection { post :upload_image, :sort }
+    end 
     resources :pages
     resources :domains
       match '/newdomain',  :to => 'domains#new'
@@ -31,5 +32,9 @@ CmsAbus2::Application.routes.draw do
       resources :attachment_files, :only => [:index, :create, :destroy]
       resources :attachments, :only => [:index, :create, :destroy]
     end
+    
+    
+    match "/vehicle/:alias", :to => 'cars#show', :as => 'vehicle' # псевдоним для машин, дабы отображать по seo- user- friendly url
+
     
 end

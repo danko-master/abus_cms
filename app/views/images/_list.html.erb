@@ -1,0 +1,8 @@
+  <% @images.each do |image| %>
+     <%= image.name %>
+     <%= link_to 'xxxxx', image, :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this award?", :class => "delete_image" %>
+     <br/>
+     <%= image_tag("#{RAILS_CAR_VIEW_IMAGES}" + "#{image.name}/" + image.image_thumb_file) %><br/><br/>
+  <% end %>
+  
+

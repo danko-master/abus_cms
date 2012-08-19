@@ -11,9 +11,11 @@
 <body>
 <%= render 'layouts/header' %>
 
-	<% flash.each do |key, value| %>
-          <div class="div-flash-<%= key %>"><%= value %></div>
-	<% end %>
+<div id="div_flash_box">
+<%= render :partial => 'layouts/flash', :locals => { :flash => flash } %>
+</div>
+
+
 
 <div class="div-content"><%= yield %></div>
 

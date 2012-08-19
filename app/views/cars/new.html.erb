@@ -1,0 +1,9 @@
+<h1><%= t('views.car.car_create_welcome') %></h1>
+
+
+<%= form_for(@car) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="div-actions">
+    <%= f.submit t('views.buttons.create') %>
+  </div>
+<% end %>
