@@ -1,2 +1,11 @@
 $('#image_list').html("<%= escape_javascript(render('list')) %>")
 $('#div_flash_box').html("<%= escape_javascript(render :partial => 'layouts/flash', :locals => { :flash => flash }).html_safe %>")
+$("#ul_images").sortable({
+      update: function(event, ui) {
+    	$.post($("#ul_images").data('update-url'), $(this).sortable('serialize'));
+     }       
+   });    
+
+  $("#ul_images").disableSelection();
+
+$(".group1").colorbox({rel:'group1', transition:"none", maxWidth:"85%", maxHeight:"85%", current: "{current} <%= t('views.image.of') %> {total}"});

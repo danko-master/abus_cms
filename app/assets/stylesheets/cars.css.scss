@@ -2,3 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.li-car {
+  list-style-type:none;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  
+  border-style: dashed;
+  border-width: 1px;
+  border-color: #77e58c;
+  border-radius:8px;
+  
+  padding: 5px;
+  
+  width: 130px;
+}
+
+.div-image {
+  margin-top: 3px;
+}

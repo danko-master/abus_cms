@@ -2,11 +2,25 @@ require 'spec_helper'
 
 describe Car do
   before(:each) do
-    @attr = {:name => "My Car", :is_show => true}
+    @attr = {:name => "My Car", :alias => "test-car1", :is_show => true}
   end
   
-  it "Create a new Car given valid attributes" do
+  it "Creating a car with valid data" do
     Car.create!(@attr)
+  end
+  
+  it "Creating a car with valid and unique data" do
+    Car.create!(@attr)
+    
+    @duplicate_car = Car.new(@attr)
+    @duplicate_car.should_not be_valid
+  end
+  
+  it "Should be ok with an associated images" do
+    @car = Car.new
+    
+    @car.images.build
+    @car.should have(:no).errors_on(:images)
   end
   
   it "Require Car name" do

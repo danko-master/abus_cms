@@ -38,8 +38,17 @@ ru:
       car_edit_welcome: "Редактирование транспортного средства"
       car_create_welcome: "Создание транспортного средства"
       car_update_welcome: "Редактирование транспортного средства"
+    image:
+      welcome: "Редактирование изображений ТС"
+      of: "из"
+      back_to_car: "Вернуться к ТС"
   field:
     add_file: "Добавить файл"
+    upload_file: "Загрузить файл на сервер"
+    select_image: "Выберите изображение"
+    notice_for_image: "Допустимые изображения .jpg и .png"
+    notice_sort_for_image: "Сортировка изображений производится перетаскиванием"
+    notice_main_for_image: "Самое левое изображение будет отображаться как основное"
     name: "Имя"
     password: "Пароль"
     new_password: "Новый пароль"

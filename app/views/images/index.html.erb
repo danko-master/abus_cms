@@ -1,17 +1,23 @@
   
-<h1>File Upload</h1>
-
-<div id="dialog-modal" class="div-dialog-modal" title="<%= t('field.add_file') %>">
+<h1><%= t('views.image.welcome') %></h1>
+<br/>
+<div>
   <%= form_tag({:action => 'upload_image', :car_id => @car.id}, :multipart => true) do %>
-    <p><label for="upload_file">Select File</label>
-    <%= file_field 'upload', 'datafile' %></p>
-    <%= submit_tag "Upload" %>
+    <label for="upload_file"><%= t('field.select_image') %></label>
+    <%= file_field 'upload', 'datafile' %>&nbsp;<%= submit_tag t('field.upload_file') %><br/>
+    <div>(<%= t('field.notice_for_image') %>)</div>
+    <div><%= t('field.notice_sort_for_image') %></div>
+    <div><%= t('field.notice_main_for_image') %></div>
   <% end %>
 </div>
-
+  <br/><br/>
 <div id="image_list">  
   <%= render 'list'  %> 
 </div>  
   <br/><br/>
+ <div>
+ 	<%= link_to t('views.image.back_to_car'), @car %>
+ </div>
+
+
   
- <%= link_to image_tag("buttons/add.png", :id => "opener"), "#" %>

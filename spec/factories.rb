@@ -11,6 +11,20 @@ FactoryGirl.define do
     sequence(:name) {|n| "example#{n}.com" }
   end
   
+  factory :car do
+    sequence(:name) {|n| "example-car#{n}" }
+    sequence(:alias) {|n| "example-alias-car#{n}" }
+    is_show true
+  end
+  
+  factory :image do
+    sequence(:name) {|n| "image#{n}" }
+    sequence(:image_file) {|n| "image#{n}.jpg" }
+    sequence(:image_thumb_file) {|n| "image#{n}-thumb.jpg" }
+    sequence(:car_id) {|n| "#{n}" }
+    order_id 1
+  end
+  
   factory :main do 
     sequence(:title) {|n| "Title example#{n}" }
     content "Content example" 

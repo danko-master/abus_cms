@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
   
   def upload_image   
     if params[:upload].present? && params[:car_id].present?
-      if DataFile.save_image_file(params[:upload], params[:car_id])
+      if DataFile.save_image_file(params[:upload][:datafile], params[:car_id])
         flash[:success] = t('activerecord.errors.controllers.message.attributes.image.image_create_success')
       else
         flash[:error] = t('activerecord.errors.controllers.message.attributes.image.image_error')
@@ -38,11 +38,11 @@ class ImagesController < ApplicationController
     
   end
   
-# def sort
-#   params[:image].each_with_index do |id, index|
-#     Image.update_all({order_id: index+1}, {id: id})
-#   end  
-# end
+  def sort
+    params[:image].each_with_index do |id, index|
+      Image.update_all({order_id: index+1}, {id: id})
+    end  
+  end
   
 
 end

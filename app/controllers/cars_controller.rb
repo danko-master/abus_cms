@@ -9,7 +9,7 @@ class CarsController < ApplicationController
     else
       @car = Car.find(params[:id])
     end
-      #@images = @car.images.order("order_id")
+      @image = @car.images.order("order_id").first
   end
   
   

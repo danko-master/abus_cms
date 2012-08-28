@@ -1,6 +1,10 @@
 <h1><%= t('views.car.car_update_welcome') %></h1>
+<br/>
 
-<%= link_to 'Редактирование изображений', :controller => 'images', :action => 'index', :car_id => @car.id %>
+<%= image_tag("#{RAILS_CAR_VIEW_IMAGES}" + "#{@image.name}/" + @image.image_thumb_file) if @image  %>
+
+
+<%= link_to t('views.image.welcome'), :controller => 'images', :action => 'index', :car_id => @car.id %>
 
 <%= form_for(@car) do |f| %>
   <%= render 'fields', :f => f %>

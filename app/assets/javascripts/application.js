@@ -5,6 +5,8 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require_tree .
-//= require jquery.ui.dialog
+//= require i18n
+//= require i18n/translations

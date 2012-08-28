@@ -1,8 +1,9 @@
+<ul id="ul_images" data-update-url="<%= sort_images_url %>">  
   <% @images.each do |image| %>
-     <%= image.name %>
-     <%= link_to 'xxxxx', image, :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this award?", :class => "delete_image" %>
-     <br/>
-     <%= image_tag("#{RAILS_CAR_VIEW_IMAGES}" + "#{image.name}/" + image.image_thumb_file) %><br/><br/>
+    <%= content_tag_for :li, image, :class => 'ui-state-default' do %>     
+     <%= link_to image_tag("#{RAILS_CAR_VIEW_IMAGES}" + "#{image.name}/" + image.image_thumb_file), "#{RAILS_CAR_VIEW_IMAGES}" + "#{image.name}/" + image.image_file, :class => 'group1' %>
+     <div class="div-images-delete"><%= link_to t('views.buttons.delete'), image, :method => :delete, :remote => true, :confirm => t('views.forms.confirm') %></div>
+    <% end %>
   <% end %>
-  
-
+</ul>
+<div class="div-clear">&nbsp;</div>

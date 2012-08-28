@@ -11,7 +11,12 @@ gem 'jquery-rails', '1.0.19'
 gem 'paperclip', '3.1.2'
 gem 'ckeditor', '3.6.3'
 
-#gem "simpleidn", "~> 0.0.4" # конвертирует рф домены в пиникод
+
+# Для ресайза
+gem 'mini_magick', '~> 3.4'
+
+# Локализация javascript
+gem "i18n-js", "~> 2.1.2"
 
 
 # Gems used only for assets and not required
@@ -21,7 +26,6 @@ group :assets do
   gem 'sass-rails',   '3.1.5' # создает css.scss файл
   gem 'coffee-rails', '3.1.1' # создает js.coffee файл
   gem 'uglifier', '>= 1.0.3' # оболочка для UglifyJS JavaScript
-  gem 'jquery-ui-rails', '1.1.0'
 end
 
 
