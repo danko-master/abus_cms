@@ -1,6 +1,14 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.all
+    if params[:domain_id]
+      @domain = Domain.find(params[:domain_id])
+      @cars_domain = @domain.cars
+      @cars = Car.find(:all, :conditions => ['id not in(select car_id from cars_domains where domain_id = ?)', params[:domain_id]])
+    else
+       @cars = Car.all
+    end   
+    
+    @domains = Domain.all
   end
 
   def show
@@ -46,5 +54,8 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
   
+  def update_domain
+
+  end
 
 end

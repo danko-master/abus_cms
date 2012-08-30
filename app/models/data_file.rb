@@ -1,8 +1,10 @@
 class DataFile < ActiveRecord::Base
+  
+ 
     attr_accessor :upload, :car_id
     
   def self.save_file(upload)
-   if  (upload !='')
+   if(upload)
     begin 
      file_name = upload.original_filename    
      file = upload.read    

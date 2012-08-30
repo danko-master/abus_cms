@@ -1,0 +1,9 @@
+<% @domains.each do |domain| %>
+	<%= content_tag_for :li, domain, :class => 'li-domain-car' do %>
+	  <% if domain == @domain %>
+		<span class='li-domain-selected'><%= domain.name %></span>
+	  <% else %>
+	    <%= link_to domain.name, cars_path(:domain_id => domain.id), :remote => true %>
+	  <% end %>
+	<% end %>
+<% end %>

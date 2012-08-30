@@ -10,7 +10,9 @@ CmsAbus2::Application.routes.draw do
     
     #пути к ресурсам контроллеров      
     resources :main
-    resources :cars
+    resources :cars do
+      collection { post :update_domain }
+    end 
     resources :images do
       collection { post :upload_image, :sort }
     end 

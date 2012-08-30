@@ -23,6 +23,7 @@ FactoryGirl.define do
     sequence(:image_thumb_file) {|n| "image#{n}-thumb.jpg" }
     sequence(:car_id) {|n| "#{n}" }
     order_id 1
+    data { fixture_file_upload('/files/test-bus-1.jpg', 'image/jpg') }
   end
   
   factory :main do 

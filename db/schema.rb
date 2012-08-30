@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120812151531) do
+ActiveRecord::Schema.define(:version => 20120829120808) do
 
   create_table "cars", :force => true do |t|
     t.string   "name"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(:version => 20120812151531) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "cars_domains", :id => false, :force => true do |t|
+    t.integer  "car_id"
+    t.integer  "domain_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cars_domains", ["car_id", "domain_id"], :name => "index_cars_domains_on_car_id_and_domain_id"
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false

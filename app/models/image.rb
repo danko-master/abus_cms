@@ -2,6 +2,8 @@ class Image < ActiveRecord::Base
   belongs_to :car,
    :foreign_key => "car_id"
   
+  has_attached_file :data
+  attr_accessor :data_file_name
     attr_accessible :name, :image_file, :image_thumb_file, :car_id, :order_id
     
     def self.delete_image_file(image_id)      
