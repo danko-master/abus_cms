@@ -2,11 +2,4 @@ $('#domain_list').html("<%= escape_javascript(render('domains')) %>")
 $('#car_list').html("<%= escape_javascript(render('list')) %>")
 $('#car_list_selected').html("<%= escape_javascript(render('list_selected')) %>")
 
-
-$(function() {
-    $("#ul_cars, #ul_cars_selected").sortable({
-        connectWith: ".ul-cars-connectedSortable"
-      })
-
-    $("#ul_cars, #ul_cars_selected").disableSelection()
-  });
+sortable_cars()

@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20120829120808) do
     t.datetime "updated_at"
   end
 
-  create_table "cars_domains", :id => false, :force => true do |t|
+  create_table "cars_domains", :force => true do |t|
     t.integer  "car_id"
     t.integer  "domain_id"
     t.datetime "created_at"

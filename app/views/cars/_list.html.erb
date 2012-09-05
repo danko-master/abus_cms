@@ -1,6 +1,6 @@
 <h4><%= t('views.car.car_remove_notice_header') %></h4>
 <div class="div-move-car"><%= t('views.car.car_remove_notice') %></div>
-<ul id="ul_cars" class="ul-cars-connectedSortable">    
+<ul id="ul_cars" class="ul-cars-connectedSortable" data-update-url="<%= destroy_domain_cars_url %>">    
   <% @cars.each do |car| %>
 	<%= content_tag_for :li, car, :class => 'li-car' do %>
 		<%= link_to car.name, vehicle_path(:alias => car.alias) %> 

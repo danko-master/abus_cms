@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.ul-cars-connectedSortable {
+  float:left;
+  
+  margin-top:10px;
+  padding: 8px;
+  width:200px;
+  
+  border-style: solid;
+  border-width: 1px;
+  border-color: #56ab56;
+  border-radius:8px;
+}
+
 .li-car {
   list-style-type:none;
   margin-top: 5px;
@@ -77,3 +90,19 @@
   text-align: center;
   color: #4a065e;
 }
+
+.li-state-highlight {
+  list-style-type:none;
+  
+  width: 120px;
+  height: 40px;
+  
+  border-style: solid;
+  border-width: 2px;
+  border-color: #e8e8c8;
+  border-radius:7px;
+  background-color: #e8e8c8;
+  
+}
+
+

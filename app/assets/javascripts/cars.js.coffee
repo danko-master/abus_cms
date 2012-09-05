@@ -2,16 +2,30 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-jQuery ->
-  $("#ul_cars, #ul_cars_selected").sortable
-    connectWith: ".ul-cars-connectedSortable"
-    #update: (event, ui) ->
-      #$.post($("#ul_images").data('update-url'), $(this).sortable('serialize'))
+# Объявляем глобальную переменную, дабы вызвать ее в index.js.erb
+window.sortable_cars = ->
+  jQuery ->
+    $("#ul_cars").sortable
+      connectWith: ".ul-cars-connectedSortable"
+      placeholder:"li-state-highlight"        
+      update: (event, ui) ->
+        $.post($("#ul_cars").data('update-url'), {car_id: ui.item.attr('id').split('_')[1], domain_id: $("#ul_cars_selected").data('domain-id')})
 
-  $("#ul_cars, #ul_cars_selected").disableSelection()
+        
+    $("#ul_cars_selected").sortable
+      connectWith: ".ul-cars-connectedSortable"
+      placeholder:"li-state-highlight"
+      update: (event, ui) ->
+        #alert($("#ul_cars_selected").data('update-url'))  
+        $.post($("#ul_cars_selected").data('update-url'), {car_id: ui.item.attr('id').split('_')[1], domain_id: $("#ul_cars_selected").data('domain-id')}) 
+       
+
+    $("#ul_cars, #ul_cars_selected").disableSelection()
+
+        
+# Не забываем вызвать функцию после объявления
+sortable_cars() 
   
-# $("div[class~='div-move-car']").droppable
-#   greedy: true
-#   tolerance: 'pointer'
-#   drop: (event, ui) ->
-#     $.post($("#ul_cars_selected").data('update-url'))
+  
+  
+  

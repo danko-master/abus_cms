@@ -47,15 +47,34 @@ class CarsController < ApplicationController
     end
   end
   
-  def destroy
-    Car.find(params[:id]).destroy
+  def destroy    
+    car = Car.find(params[:id])
+    car_images = car.images
+    
+    Car.delete_car_full(car, car_images)
+    #Car.find(params[:id]).destroy
     
     flash[:success] = t('activerecord.errors.controllers.message.attributes.car.car_destroy_success')
     redirect_to cars_path
   end
   
   def update_domain
+    cardomain = CarsDomain.new(:car_id => params[:car_id], :domain_id => params[:domain_id])
+    cardomain.save
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
+  def destroy_domain
+    CarsDomain.where(:car_id => params[:car_id], :domain_id => params[:domain_id]).destroy_all
 
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
 end
