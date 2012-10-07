@@ -20,6 +20,7 @@ class DomainsController < ApplicationController
     @domain = Domain.new(params[:domain])
     
     if @domain.save
+      Domain.save_with_main(params[:domain][:name])
       flash[:success] = t('activerecord.errors.controllers.message.attributes.domain.domain_create_success')
        redirect_to domains_path
     else

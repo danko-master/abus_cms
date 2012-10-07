@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829120808) do
+ActiveRecord::Schema.define(:version => 20121005194735) do
 
   create_table "cars", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20120829120808) do
     t.integer  "domain_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order_id",   :default => -1, :null => false
   end
 
   add_index "cars_domains", ["car_id", "domain_id"], :name => "index_cars_domains_on_car_id_and_domain_id"
@@ -75,17 +76,21 @@ ActiveRecord::Schema.define(:version => 20120829120808) do
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title",      :default => ""
   end
 
   create_table "images", :force => true do |t|
-    t.string   "name"
-    t.string   "image_file"
-    t.string   "image_thumb_file"
-    t.integer  "car_id"
-    t.integer  "order_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "car_id",             :default => -1
+    t.integer  "order_id",           :default => -1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "images", ["car_id"], :name => "index_images_on_car_id"
 
   create_table "mains", :force => true do |t|
     t.text     "title"

@@ -2,13 +2,13 @@
 <h4><%= t('views.car.car_add_notice_header') %></h4>
 <div id="drop_car" class="div-move-car"><%= t('views.car.car_add_notice') %></div>
 <% if @cars_domain %>
-<ul id="ul_cars_selected" data-domain-id="<%= @domain.id if @domain %>" class="ul-cars-connectedSortable" data-update-url="<%= update_domain_cars_url %>">  
+<ul id="ul_cars_selected" data-domain-id="<%= @domain.id if @domain %>" class="ul-cars-connectedSortable" data-update-url="<%= update_domain_cars_url %>" data-sortable-update-url="<%= sort_cars_url %>">  
        <% @cars_domain.each do |car| %>
          <%= content_tag_for :li, car, :class => 'li-car-domain' do %>
            <%= link_to car.name, vehicle_path(:alias => car.alias) %> 
            (<%= link_to image_tag("buttons/edit.png", :alt => "#{t('views.buttons.edit')} #{car.name}", :title => "#{t('views.buttons.edit')} #{car.name}", :class => 'img-buttons'), car %>) 
            		<%= link_to image_tag("buttons/delete.png", :alt => "#{t('views.buttons.delete')} #{car.name}", :title => "#{t('views.buttons.delete')} #{car.name}", :class => 'img-buttons'), car, :method => :delete, :confirm => t('views.forms.confirm') %>
-            <div class="div-image"><%= link_to image_tag("#{RAILS_CAR_VIEW_IMAGES}" + "#{car.images.order('order_id').first.name}/" + car.images.order('order_id').first.image_thumb_file), car if car.images.order('order_id').first %></div>
+            <div class="div-image"><%= link_to image_tag(car.images.order('order_id').first.image.url(:small)), car if car.images.order('order_id').first %></div>
           <% end %>
         <% end %>    
 </ul>

@@ -4,7 +4,7 @@ class Car < ActiveRecord::Base
   has_many :cars_domains, :dependent => :delete_all
   has_many :domains, :through => :cars_domains
   
-  attr_accessible :name, :short, :long, :is_show, :title, :metadescription, :metakeywords,
+  attr_accessible :name, :short, :long, :is_show, :is_special, :title, :metadescription, :metakeywords,
   :alias, :price_hour, :price_MKAD, :min_zakaz, :transfer_sheremetevo,
   :transfer_vnukovo, :transfer_domodedovo, :transfer_ostafevo, :transfer_bikovo, :transfer_airport_airport, 
   :transfer_airport_station, :transfer_station_airport, :weeding_price_hour, :weeding_price_MKAD, 

@@ -5,6 +5,10 @@
     <%= f.label :name, t('views.domains.domain_address') %><br />
     <%= f.text_field :name, :class => 'domain_name' %>
   </div>
+  <div class="div-field">
+    <%= f.label :title, t('views.domains.domain_title') %><br />
+    <%= f.text_field :title, :class => 'domain_name' %>
+  </div>
   <div class="div-actions">
     <%= f.submit t('views.forms.save'),:confirm => t('views.forms.confirm') %>
   </div>

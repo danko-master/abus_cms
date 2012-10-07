@@ -13,7 +13,7 @@ gem 'ckeditor', '3.6.3'
 
 
 # Для ресайза
-gem 'mini_magick', '~> 3.4'
+#gem 'mini_magick', '~> 3.4'
 
 # Локализация javascript
 gem "i18n-js", "~> 2.1.2"

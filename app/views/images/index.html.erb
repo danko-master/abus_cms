@@ -4,7 +4,7 @@
 <div>
   <%= form_tag({:action => 'upload_image', :car_id => @car.id}, :multipart => true) do %>
     <label for="upload_file"><%= t('field.select_image') %></label>
-    <%= file_field 'upload', 'datafile' %>&nbsp;<%= submit_tag t('field.upload_file') %><br/>
+    <%= file_field 'upload', 'image' %>&nbsp;<%= submit_tag t('field.upload_file') %><br/>
     <div>(<%= t('field.notice_for_image') %>)</div>
     <div><%= t('field.notice_sort_for_image') %></div>
     <div><%= t('field.notice_main_for_image') %></div>

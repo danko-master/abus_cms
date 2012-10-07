@@ -2,10 +2,10 @@ class CarsController < ApplicationController
   def index
     if params[:domain_id]
       @domain = Domain.find(params[:domain_id])
-      @cars_domain = @domain.cars
-      @cars = Car.find(:all, :conditions => ['id not in(select car_id from cars_domains where domain_id = ?)', params[:domain_id]])
+      @cars_domain = @domain.cars.order("order_id")
+      @cars = Car.order('updated_at DESC').find(:all, :conditions => ['id not in(select car_id from cars_domains where domain_id = ?)', params[:domain_id]])
     else
-       @cars = Car.all
+       @cars = Car.order('updated_at DESC').all
     end   
     
     @domains = Domain.all
@@ -62,6 +62,7 @@ class CarsController < ApplicationController
     cardomain = CarsDomain.new(:car_id => params[:car_id], :domain_id => params[:domain_id])
     cardomain.save
     
+    
     respond_to do |format|
       format.html
       format.js
@@ -75,6 +76,12 @@ class CarsController < ApplicationController
       format.html
       format.js
     end
+  end
+  
+  def sort
+    params[:car].each_with_index do |id, index|
+      CarsDomain.where(:domain_id => params[:domain_id]).update_all({order_id: index+1}, {car_id: id})
+    end  
   end
 
 end

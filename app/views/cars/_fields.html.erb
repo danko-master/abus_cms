@@ -152,7 +152,9 @@
  </tr>
 </table>
 
-  
   <div class="div-field">
-    <%= f.check_box :is_show, :class => "checkbox-field", :checked => true %> <%= f.label :is_show, t('field.car_is_show') %>    
+    <%= f.check_box :is_special, :class => "checkbox-field" %> <%= f.label :is_show, t('field.car_is_show_special') %>    
+  </div>
+  <div class="div-field">
+    <%= f.check_box :is_show, :class => "checkbox-field" %> <%= f.label :is_show, t('field.car_is_show') %>    
   </div>

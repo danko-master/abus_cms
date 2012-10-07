@@ -11,15 +11,16 @@ window.sortable_cars = ->
       update: (event, ui) ->
         $.post($("#ul_cars").data('update-url'), {car_id: ui.item.attr('id').split('_')[1], domain_id: $("#ul_cars_selected").data('domain-id')})
 
-        
+
     $("#ul_cars_selected").sortable
       connectWith: ".ul-cars-connectedSortable"
       placeholder:"li-state-highlight"
+      receive: (event, ui) ->
+        $.post($("#ul_cars_selected").data('update-url'), {car_id: ui.item.attr('id').split('_')[1], domain_id: $("#ul_cars_selected").data('domain-id')})
       update: (event, ui) ->
-        #alert($("#ul_cars_selected").data('update-url'))  
-        $.post($("#ul_cars_selected").data('update-url'), {car_id: ui.item.attr('id').split('_')[1], domain_id: $("#ul_cars_selected").data('domain-id')}) 
+        $.post($("#ul_cars_selected").data('sortable-update-url'), $(this).sortable('serialize') + '&domain_id='+ $("#ul_cars_selected").data('domain-id')) 
        
-
+ 
     $("#ul_cars, #ul_cars_selected").disableSelection()
 
         
